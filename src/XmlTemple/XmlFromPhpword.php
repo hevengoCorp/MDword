@@ -127,7 +127,7 @@ class XmlFromPhpword extends AbstractWriter implements WriterInterface
      *
      * @param string $filename
      */
-    public function save($filename = null)
+    public function save(string $filename): void
     {
         $filename = $this->getTempFile($filename);
         $zip = $this->getZipArchive($filename);
@@ -168,10 +168,6 @@ class XmlFromPhpword extends AbstractWriter implements WriterInterface
         $this->addComments($zip, $rId);
         $this->addChart($zip, $rId);
 
-//         var_dump($this->parts);exit;
-//         echo $this->writerParts['document']->write();exit;
-        echo $this->writerParts['styles']->write();exit;
-        
         // Write parts
         foreach ($this->parts as $partName => $fileName) {
             if ($fileName != '') {
