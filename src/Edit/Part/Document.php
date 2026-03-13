@@ -367,6 +367,9 @@ class Document extends PartBase
                     }
 
                     $pStyle = $this->word->wordProcessor->getStylesEdit()->getStyleById($pStyleId);
+                    if(is_null($pStyle)) {
+                        return null;
+                    }
                     $pPrTemp = $pStyle->getElementsByTagName('pPr')->item(0);
                     if(is_null($pPrTemp)) {
                         return null;
